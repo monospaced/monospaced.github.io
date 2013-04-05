@@ -1,2 +1,2 @@
-monospaced.github.com
+Monospaced Labs
 =====================
