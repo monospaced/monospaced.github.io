@@ -1,129 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-      <title>Monospaced Labs</title>
-      <meta name="viewport" content="width=device-width">
-      <link rel="icon" href="http://monospaced.com/favicon.ico" type="image/x-icon">
-      <style>article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
-
-      @font-face {
-        font-family: letter_gothic_stdbold;src: url(data:application/x-font-woff;charset=utf-8;base64,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) format('woff');
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      * {
-        -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-                box-sizing: border-box;
-      }
-
+    <meta charset="utf-8" />
+    <title>Monospaced Labs</title>
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      href="http://monospaced.com/favicon.ico"
+      type="image/x-icon"
+    />
+    <style>
       body {
-        padding: 31px 0 12px;
-        border-top: 12px solid #ccf;
-        text-shadow: 0 1px 0 #fff;
-        font-family: georgia, serif;
-        line-height: 1.5;
-        color: #333;
+        margin-block: 1.5em;
+        font-family: system-monospace, monospace;
       }
-
-      #container {
-        width: 480px;
-        max-width: 90.625%;
-        margin: 0 auto;
-      }
-
-      a {
-        color: #6D6DF7;
-        text-decoration: none;
-        -webkit-transition: color 250ms ease-in-out;
-           -moz-transition: color 250ms ease-in-out;
-            -ms-transition: color 250ms ease-in-out;
-             -o-transition: color 250ms ease-in-out;
-                transition: color 250ms ease-in-out;
-      }
-
-      a:hover,
-      a:focus,
-      a:active {
-        color: #0000e5;
-      }
-
-      div[role="banner"] {
-        margin: 0 0 25px;
-      }
-
-      div[role="content-info"] {
-        padding: 2px 0 17px;
-      }
-
-      div[role="content-info"] p {
-        margin: 0 0 12px;
-        font-weight: normal !important;
-        font-style: normal !important;
-        font-family: letter_gothic_stdbold, sans-serif;
-        text-transform: uppercase;
-      }
-
-      div[role="content-info"] a {
-        color: #333;
-      }
-
-      div[role="content-info"] a:hover,
-      div[role="content-info"] a:focus,
-      div[role="content-info"] a:active {
-        color: #585858;
-      }
-
-      h1 {
-        margin: 0;
-        font-weight: normal !important;
-        font-style: normal !important;
-        font-size: 36px;
-        line-height: 1;
-        font-family: letter_gothic_stdbold, sans-serif;
-        text-transform: uppercase;
-      }
-
+      h1,
       h2 {
-        font-weight: normal;
-        margin: 0 0 2px;
-        font-size: 21px;
-        line-height: 1.142857143;
+        font-weight: 400;
+        margin: 0;
       }
-
       p {
         margin: 0;
       }
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
       li {
-        margin: 0 0 25px;
+        margin-bottom: 1.5em;
       }
-
-      .gh {
-        font-size: 12px;
-        line-height: 1.25;
+      .banner,
+      .content-info {
+        margin-inline: 40px;
       }
-      .gh a {
-        color: #ccf;
+      a {
+        color: #3232ff;
+        text-decoration: none;
       }
-      .gh a:hover,
-      .gh a:focus,
-      .gh a:active {
-        color: #6D6DF7;
+      a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div id="container">
-      <div role="banner">
+      <div class="banner">
         <h1>Monospaced Labs</h1>
         <p class="gh">
           <a href="http://github.com/monospaced">github.com/monospaced</a>
@@ -132,48 +49,59 @@
       <ul>
         <li>
           <h2>
-            <a href="http://monospaced.github.io/angular-elastic/">Angular Elastic</a>
-          </h2>
-          <p>Elastic (autosize) textareas for AngularJS.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/angular-elastic">github.com/monospaced/angular-elastic</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/angular-qrcode/">Angular QR Code</a>
-          </h2>
-          <p>QR Code elements for AngularJS.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/angular-qrcode">github.com/monospaced/angular-qrcode</a>
-          </p>
-        </li>
-        <li>
-          <h2>
             <a href="http://monospaced.github.io/hamster.js/">Hamster.js</a>
           </h2>
-          <p>Cross-browser mouse wheel&nbsp;support.<br> Also <a href="https://github.com/monospaced/angular-mousewheel">Angular Mousewheel</a> adapter for AngularJS.</p>
+          <p>Cross-browser mouse wheel&nbsp;support</p>
           <p class="gh">
-            <a href="https://github.com/monospaced/hamster.js">github.com/monospaced/hamster.js</a> <br>
-            <a href="https://github.com/monospaced/angular-mousewheel">github.com/monospaced/angular-mousewheel</a>
+            <a href="https://github.com/monospaced/hamster.js"
+              >github.com/monospaced/hamster.js</a
+            >
           </p>
         </li>
         <li>
           <h2>
             <a href="http://monospaced.github.io/paperback/">Paperback</a>
           </h2>
-          <p>Read e-books on the web.</p>
+          <p>Read e-books on the web</p>
           <p class="gh">
-            <a href="https://github.com/monospaced/paperback">github.com/monospaced/paperback</a>
+            <a href="https://github.com/monospaced/paperback"
+              >github.com/monospaced/paperback</a
+            >
           </p>
         </li>
         <li>
           <h2>
-            <a href="http://monospaced.github.io/angular-placeholder/">Angular Placeholder</a>
+            <a href="http://monospaced.github.io/caninha/">Sublime-Twee</a>
           </h2>
-          <p>Placeholder polyfill for AngularJS.</p>
+          <p>Twee syntax highlighting for Sublime Text 2</p>
           <p class="gh">
-            <a href="https://github.com/monospaced/angular-placeholder">github.com/monospaced/angular-placeholder</a>
+            <a href="https://github.com/monospaced/sublime-twee"
+              >github.com/monospaced/sublime-twee</a
+            >
+          </p>
+        </li>
+        <li>
+          <h2>
+            <a href="http://monospaced.github.io/mysteron.js/" target="_blank"
+              >Mysteron.js</a
+            >
+          </h2>
+          <p>Web Audio API theremin</p>
+          <p class="gh">
+            <a href="https://github.com/monospaced/mysteron.js"
+              >github.com/monospaced/mysteron.js</a
+            >
+          </p>
+        </li>
+        <li>
+          <h2>
+            <a href="http://monospaced.github.io/pondlife/">Pond Life</a>
+          </h2>
+          <p>Canvas experiment</p>
+          <p class="gh">
+            <a href="https://github.com/monospaced/pondlife"
+              >github.com/monospaced/pondlife</a
+            >
           </p>
         </li>
         <li>
@@ -181,97 +109,19 @@
             <a href="http://monospaced.github.io/caninha/">Caninha</a>
           </h2>
           <p>
-            Templating engines for
-            <a href="http://www.gimcrackd.com/etc/src/">Twee/Twine</a>.<br> Also Twee syntax highlighting for Sublime Text 2.
+            Templating engine for
+            <a href="https://twinery.org/cookbook/">Twee/Twine</a>
           </p>
           <p class="gh">
-            <a href="https://github.com/monospaced/caninha">github.com/monospaced/caninha</a> <br>
-            <a href="https://github.com/monospaced/melville">github.com/monospaced/melville</a> <br>
-            <a href="https://github.com/monospaced/sublime-twee">github.com/monospaced/sublime-twee</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/mysteron.js/" target="_blank">Mysteron.js</a>
-          </h2>
-          <p>Web Audio API theremin.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/mysteron.js">github.com/monospaced/mysteron.js</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/obs">OBS</a>
-          </h2>
-          <p>Opinionated Browser Support.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/obs">github.com/monospaced/obs</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/Socialite/">Socialite Weibo</a>
-          </h2>
-          <p>Weibo extension for <a href="http://socialitejs.com">Socialite</a>.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/Socialite/blob/master/extensions/socialite.weibo.js">github.com/monospaced/Socialite</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/angular-hammer/">Angular Hammer</a>
-          </h2>
-          <p><a href="https://github.com/EightMedia/hammer.js">Hammer.js</a> support for AngularJS.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/angular-hammer">github.com/monospaced/angular-hammer</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://jobs.monospaced.com/">Monospaced Jobs</a>
-          </h2>
-          <p>Job board aggregator.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/jobs.monospaced">github.com/monospaced/jobs.monospaced</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.com/labs/gbs/">Graded Browser Support</a>
-          </h2>
-          <p>
-            Server-side detection of
-            <a href="http://yuilibrary.com/yui/docs/tutorials/gbs/">Yahoo GBS</a>
-            C-grade browsers.
-          </p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/Graded-Browser-Support">github.com/monospaced/Graded-Browser-Support</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.github.io/pondlife/">Pond Life</a>
-          </h2>
-          <p>Canvas experiment.</p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/pondlife">github.com/monospaced/pondlife</a>
-          </p>
-        </li>
-        <li>
-          <h2>
-            <a href="http://monospaced.com/labs/monocle/test/showcase/sesome/" target="_blank">Sesome</a>
-          </h2>
-          <p>
-            Responsive layout for <a href="http://monocle.inventivelabs.com.au/">Monocle</a>.
-          </p>
-          <p class="gh">
-            <a href="https://github.com/monospaced/sesome">github.com/monospaced/sesome</a>
+            <a href="https://github.com/monospaced/caninha"
+              >github.com/monospaced/caninha</a
+            >
           </p>
         </li>
       </ul>
-      <div role="content-info">
+      <div class="content-info">
         <p>
-          <a href="http://monospaced.com">Monospaced Ltd</a>
+          <a href="http://monospaced.com">Monospaced</a>
         </p>
       </div>
     </div>
